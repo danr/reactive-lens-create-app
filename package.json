@@ -1,0 +1,42 @@
+{
+  "name": "snabbis-create-app",
+  "license": "Unlicense",
+  "version": "0.1.0",
+  "author": "Dan Rosén",
+  "description": "Empty project using snabbis (an opinionated library for snabbdom and reactive-lens)",
+  "repository": "https://github.com/danr/snabbis-create-app/",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danr/snabbis-create-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danr/snabbis-create-app/issues"
+  },
+  "homepage": "https://github.com/danr/snabbis-create-app#readme",
+  "keywords": [
+    "snabbdom",
+    "snabbis",
+    "reactive-lens"
+  ],
+  "dependencies": {
+    "reactive-lens": "^0.3.0",
+    "snabbis": "^0.10.0"
+  },
+  "devDependencies": {
+    "@types/tape": "^4.2.30",
+    "parcel-bundler": "^1.3.1",
+    "tap-diff": "^0.1.1",
+    "tape": "^4.8.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.6.1"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "pretest": "tsc",
+    "test": "tape dist/test/*.js | tap-diff"
+  }
+}
