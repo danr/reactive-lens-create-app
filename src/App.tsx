@@ -1,5 +1,7 @@
+import * as React from 'react'
 import { Store, Lens } from "reactive-lens"
-import { tag, s, VNode } from "snabbis"
+
+type VNode = React.ReactElement<{}>
 
 export interface State {
   readonly greeting: string,
@@ -9,7 +11,7 @@ export interface State {
 }
 
 export const init: State = {
-  greeting: 'snabbis-create-app',
+  greeting: 'reactive-lens-create-app',
   ticks: 0,
   interval: 1000,
   active_timer: null
@@ -41,24 +43,23 @@ export function App(store: Store<State>): () => VNode {
   return () => View(store)
 }
 
+export const Input = (store: Store<string>) =>
+  <input value={store.get()} onChange={(e: React.ChangeEvent<HTMLInputElement>) => store.set(e.target.value)}/>
+
+export const RangeInput = ({store, ...props}: {store: Store<number>} & React.InputHTMLAttributes<HTMLInputElement>) =>
+  <input {...props} type="range" value={store.get()} onChange={(e: React.ChangeEvent<HTMLInputElement>) => store.set(e.target.valueAsNumber)}/>
+
 export function View(store: Store<State>): VNode {
   const state = store.get()
-  return tag('.container',
-    tag('h1', state.greeting),
-    tag('div', 'Greeting: ', s.input(store.at('greeting'))),
-    tag('div', 'App running for ', state.ticks / 1000, ' s'),
-    tag('div', 'Tick every ',
-      tag('input',
-        s.attrs({
-          type: 'range',
-          min: 100,
-          max: 2000,
-          step: 100,
-        }),
-        s.on('change')((e: Event) => store.at('interval').set((e.target as any).valueAsNumber)),
-        s.on('input')((e: Event) => store.at('interval').set((e.target as any).valueAsNumber)),
-        s.hook('insert')((vn: VNode) => vn.elm && ((vn.elm as HTMLInputElement).value = state.interval + ''))
-      ),
-      state.interval, ' ms')
-    )
+  return (
+    <div className="container">
+      <h1>{state.greeting}</h1>
+      <div>Greeting: {Input(store.at('greeting'))}</div>
+      <div>App running for {state.ticks / 1000}s</div>
+      <div>Tick every
+        <RangeInput store={store.at('interval')} type="range" min="100" max="2000" step="100"/>
+        {state.interval} ms
+      </div>
+    </div>
+  )
 }

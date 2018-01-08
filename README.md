@@ -1,4 +1,4 @@
-# `snabbis-create-app`
+# `reactive-lens-create-app`
 
 Running locally:
 ```

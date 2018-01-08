@@ -1,36 +1,37 @@
 {
-  "name": "snabbis-create-app",
+  "name": "reactive-lens-create-app",
   "license": "Unlicense",
   "version": "0.1.0",
   "author": "Dan Rosén",
-  "description": "Empty project using snabbis (an opinionated library for snabbdom and reactive-lens)",
-  "repository": "https://github.com/danr/snabbis-create-app/",
+  "description": "Empty project using reactive-lens and react",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danr/reactive-lens-create-app.git"
+  },
   "directories": {
     "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/danr/snabbis-create-app.git"
-  },
   "bugs": {
-    "url": "https://github.com/danr/snabbis-create-app/issues"
+    "url": "https://github.com/danr/reactive-lens-create-app/issues"
   },
-  "homepage": "https://github.com/danr/snabbis-create-app#readme",
+  "homepage": "https://github.com/danr/reactive-lens-create-app#readme",
   "keywords": [
-    "snabbdom",
-    "snabbis",
-    "reactive-lens"
+    "reactive-lens",
+    "react"
   ],
   "dependencies": {
-    "reactive-lens": "^0.3.0",
-    "snabbis": "^0.10.0"
+    "parcel-plugin-typescript": "^0.4.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "reactive-lens": "^0.4.0"
   },
   "devDependencies": {
+    "@types/react": "^16.0.34",
+    "@types/react-dom": "^16.0.3",
     "@types/tape": "^4.2.30",
     "parcel-bundler": "^1.3.1",
     "tap-diff": "^0.1.1",
     "tape": "^4.8.0",
-    "ts-node": "^3.3.0",
     "typescript": "^2.6.1"
   },
   "scripts": {
