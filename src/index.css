@@ -1,23 +1,23 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 body {
-    font-size: 16px;
-    font-family: 'Helvetica Neue', Helvetica, 'Lato', 'Open Sans', sans-serif;
-    background: #eee;
-    color: #333;
-    font-weight: 500;
+  font-size: 16px;
+  font-family: 'Helvetica Neue', Helvetica, 'Lato', 'Open Sans', sans-serif;
+  background: #eee;
+  color: #333;
+  font-weight: 500;
 }
 
 .container {
-    margin: 0 auto;
-    max-width: 400px;
+  margin: 0 auto;
+  max-width: 400px;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
-

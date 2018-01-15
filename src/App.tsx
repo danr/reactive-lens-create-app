@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Store } from "reactive-lens"
+import {Store} from 'reactive-lens'
 
 type VNode = React.ReactElement<{}>
 
 export interface State {
-  readonly greeting: string,
-  readonly count: number,
-  readonly increase: number,
+  readonly greeting: string
+  readonly count: number
+  readonly increase: number
 }
 
 export const init: State = {
@@ -32,14 +32,16 @@ export function View(store: Store<State>): VNode {
   return (
     <div className="container">
       <h1>{state.greeting}</h1>
-      <div>Greeting: <Input store={store.at('greeting')}/></div>
+      <div>
+        Greeting: <Input store={store.at('greeting')} />
+      </div>
       <div>
         <span>Counter: {state.count} </span>
         <button onClick={() => store.update({count: state.count + state.increase})}>+</button>
       </div>
       <div>
         Increase by
-        <ValueInput type="range" store={store.at('increase')} min={-1} max={5}/>
+        <ValueInput type="range" store={store.at('increase')} min={-1} max={5} />
         {state.increase}
       </div>
     </div>
@@ -53,6 +55,5 @@ function Input({store, ...props}: {store: Store<string>} & InputAttrs) {
 }
 
 function ValueInput({store, ...props}: {store: Store<number>} & InputAttrs) {
-  return <input {...props} value={store.get()} onChange={e => store.set(e.target.valueAsNumber)}/>
+  return <input {...props} value={store.get()} onChange={e => store.set(e.target.valueAsNumber)} />
 }
-

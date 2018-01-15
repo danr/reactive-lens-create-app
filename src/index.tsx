@@ -1,8 +1,8 @@
-import * as App from "./App"
+import * as App from './App'
 import './index.css'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { Store, attach } from 'reactive-lens'
+import {Store, attach} from 'reactive-lens'
 
 const root = document.getElementById('root') as HTMLElement
 const reattach = attach(vn => ReactDOM.render(vn, root), App.init, App.App)
