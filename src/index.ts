@@ -1,7 +1,7 @@
 import * as App from './App'
 import './index.css'
 import * as ReactDOM from 'react-dom'
-import {Store, attach} from 'reactive-lens'
+import {attach} from 'reactive-lens'
 
 declare const module: {hot: {accept: Function}}
 
