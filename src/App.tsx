@@ -15,15 +15,13 @@ export const init: State = {
   increase: 1,
 }
 
-export const json = (s: any) => JSON.stringify(s, undefined, 2)
-
 export function App(store: Store<State>): () => VNode {
   const global = window as any
   global.store = store
   global.reset = () => store.set(init)
-  store.on(x => console.log(json(x)))
-  store.storage_connect('snabbis-create-app')
+  store.at('count').storage_connect('reactive-lens-create-app/count')
   store.at('greeting').location_connect(s => s, s => s.slice(1))
+  store.on(x => console.log(JSON.stringify(x, undefined, 2)))
   return () => View(store)
 }
 
